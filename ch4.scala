@@ -1,7 +1,9 @@
 val dataWithoutHeader = spark.read.
   option("inferSchema", "true").
   option("header", "false").
-  csv("covtype.data")
+  csv("hdfs://localhost:9000/user/covtype.data")
+
+dataWithoutHeader.show(10)
 
 val colNames = Seq(
   "Elevation", "Aspect", "Slope",
